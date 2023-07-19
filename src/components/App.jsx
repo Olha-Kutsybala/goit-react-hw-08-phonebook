@@ -12,7 +12,6 @@ const App = () => {
   const RegisterPage = lazy(() => import('../pages/Register/Register'));
   const LoginPage = lazy(() => import('../pages/Login/Login'));
   const ContactsPage = lazy(() => import('../pages/Contacts/contacts'));
-  // const ContactsPage = lazy(() => import('../pages/Contacts/contacts'));
 
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -43,7 +42,7 @@ const App = () => {
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
@@ -51,22 +50,6 @@ const App = () => {
       </Route>
     </Routes>
   );
-
-  // return (
-  //   <div className={css.container}>
-  //     <h1 className={css.title}>Phonebook</h1>
-  //     <Form />
-  //     {isLoading && !error && <b>Request in progress...</b>}
-  //     <h2 className={css.title}>Contacts</h2>
-  //     {contacts.length >= 1 && <Filter />}
-  //     {contacts.length > 0 ? (
-  //       <ContactList />
-  //     ) : (
-  //       <p>Your phonebook is empty. Please add contact.</p>
-  //     )}
-  //     <Toaster position="top-right" toastOptions={{ duration: 1500 }} />
-  //   </div>
-  // );
 };
 
 export default App;

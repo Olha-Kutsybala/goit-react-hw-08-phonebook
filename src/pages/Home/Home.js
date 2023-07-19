@@ -1,10 +1,10 @@
 import { AuthHome } from 'components/home/AuthHome';
 import { UnAuthHome } from 'components/home/UnAuthHome';
 import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from 'redux/authSelectors';
+import { selectIsLoggedIn } from 'redux/authSelectors';
 
 const Home = () => {
-  const isLoggedIn = useSelector(getIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return isLoggedIn ? <AuthHome /> : <UnAuthHome />;
 };

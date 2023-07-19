@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { getUserEmail, getUserName } from 'redux/authSelectors';
+import { selectUserEmail, selectUserName } from 'redux/authSelectors';
 
 export const AuthHome = () => {
-  const userName = useSelector(getUserName);
-  const userEmail = useSelector(getUserEmail);
+  const userName = useSelector(selectUserName);
+  const userEmail = useSelector(selectUserEmail);
   return (
     <div>
       <h1>Welcome!</h1>
