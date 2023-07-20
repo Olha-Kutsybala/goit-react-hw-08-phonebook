@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectUserEmail, selectUserName } from 'redux/authSelectors';
+import { selectUserEmail, selectUserName } from 'redux/auth/authSelectors';
 
 export const AuthHome = () => {
   const userName = useSelector(selectUserName);

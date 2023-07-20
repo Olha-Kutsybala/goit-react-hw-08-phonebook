@@ -2,10 +2,11 @@ import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import { AppBar } from './appBar/appBar';
+import css from './App.module.css';
 
 export const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div className={css.container}>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />

@@ -6,8 +6,9 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  // error: null,
+  // isLoading: false,
 };
-
 const handleRefreshPending = state => {
   state.isRefreshing = true;
 };

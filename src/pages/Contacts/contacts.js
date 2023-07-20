@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { Helmet } from 'react-helmet';
-import { getError, getIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading } from 'redux/selectors';
 import { useContacts } from 'hooks/useContacts';
 import Form from 'components/form';
 import ContactList from 'components/contactList';
@@ -10,8 +9,8 @@ import Filter from 'components/filter';
 export default function Contacts() {
   const { contacts, fetchContacts } = useContacts();
 
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     fetchContacts();
@@ -19,9 +18,7 @@ export default function Contacts() {
 
   return (
     <>
-      {/* <Helmet> */}
-      <title>Your tasks</title>
-      {/* </Helmet> */}
+      <h1>Your contacts</h1>
       <Form />
       {isLoading && !error && <b>Request in progress...</b>}
       {contacts.length >= 1 && <Filter />}

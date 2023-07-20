@@ -1,35 +1,98 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/authOperations';
+import { register } from 'redux/auth/authOperations';
+import css from './RegisterForm.module.css';
 
-export const RegisterForm = e => {
-  const form = e.currentTarget;
-  const dispatch = useDispatch();
-  const handleSubmit = ({ name, email, password }) => {
-    dispatch(register({ name, email, password })).then(response => {
-      if (response.meta.requestStatus === 'fulfilled') {
-        form.reset();
-        alert('success');
+export const RegisterForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+
+      case 'email':
+        setEmail(value);
+        break;
+
+      case 'password':
+        setPassword(value);
+        break;
+
+      default:
         return;
-      }
-      alert('error');
-    });
+    }
+  };
+
+  const dispatch = useDispatch();
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(
+      register({
+        name,
+        email,
+        password,
+      })
+    );
+    reset();
+  };
+
+  const reset = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <div className={css.registerForm_container}>
+      <h2>Sign Up</h2>
+      <form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className={css.registerForm}
+      >
+        <label>
+          <input
+            type="text"
+            name="name"
+            required
+            onChange={handleChange}
+            value={name}
+            placeholder="Username"
+            className={css.registerForm_input}
+          />
+        </label>
+        <label>
+          <input
+            type="email"
+            name="email"
+            required
+            onChange={handleChange}
+            value={email}
+            placeholder="Email"
+            className={css.registerForm_input}
+          />
+        </label>
+        <label>
+          <input
+            type="password"
+            name="password"
+            required
+            minLength={8}
+            onChange={handleChange}
+            value={password}
+            placeholder="Password"
+            className={css.registerForm_input}
+          />
+        </label>
+        <button type="submit" className={css.registerForm_button}>
+          Register
+        </button>
+      </form>
+    </div>
   );
 };
