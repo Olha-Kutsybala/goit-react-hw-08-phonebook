@@ -13,14 +13,14 @@
   justify-content: space-between;
   align-content: center;
   border-radius: 12px;
-  border: 2px solid rgb(228, 74, 228);
+  border: 2px solid rgb(88, 136, 209);
   gap: 12px;
   transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus,
   &:hover {
-    border-color: rgb(73, 3, 119);
+    border-color: rgb(5, 59, 160);
   }
 }
 
@@ -34,14 +34,14 @@
   border-radius: 100%;
   width: 24px;
   height: 24px;
-  background-color: rgb(228, 74, 228);
+  background-color: rgb(88, 136, 209);
   color: black;
   transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
     color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background-color: rgb(73, 3, 119);
+    background-color: rgb(5, 59, 160);
     color: white;
   }
 }

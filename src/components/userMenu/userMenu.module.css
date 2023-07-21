@@ -15,6 +15,6 @@
 
   &:hover,
   &:focus-within {
-    border-color: rgb(228, 74, 228);
+    border-color: rgb(5, 59, 160);
   }
 }
