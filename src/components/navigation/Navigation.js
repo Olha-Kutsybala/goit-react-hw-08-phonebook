@@ -7,9 +7,11 @@ const Navigation = () => {
 
   return (
     <nav className={css.navigation}>
-      <NavLink to="/">Home</NavLink>
+      <NavLink className={css.navigation_link} to="/">
+        Home
+      </NavLink>
       {isLoggedIn && (
-        <NavLink to="/contacts" id="contacts">
+        <NavLink className={css.navigation_link} to="/contacts" id="contacts">
           Contacts
         </NavLink>
       )}

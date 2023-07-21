@@ -5,7 +5,7 @@ export const UnAuthHome = () => {
   return (
     <div className={css.home_container}>
       <img src="phone-book.jpg" alt="phone-book" width="240"></img>
-      <div>
+      <div className={css.home_text_container}>
         <h1>
           Welcome to the most convenient phonebook! <br />
           Register and use!
