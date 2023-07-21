@@ -19,7 +19,7 @@ export default function Contacts() {
 
   return (
     <div className={css.contacts}>
-      <h1 className={css.contacts_title}>Your contacts</h1>
+      <h1 className={css.contacts_title}>Your contacts!</h1>
       <Form />
       {isLoading && !error && <b>Request in progress...</b>}
       {contacts.length >= 1 && <Filter />}
