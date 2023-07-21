@@ -5,6 +5,7 @@ import { useContacts } from 'hooks/useContacts';
 import Form from 'components/form';
 import ContactList from 'components/contactList';
 import Filter from 'components/filter';
+import css from './contacts.module.css';
 
 export default function Contacts() {
   const { contacts, fetchContacts } = useContacts();
@@ -17,8 +18,8 @@ export default function Contacts() {
   }, [fetchContacts]);
 
   return (
-    <>
-      <h1>Your contacts</h1>
+    <div className={css.contacts}>
+      <h1 className={css.contacts_title}>Your contacts</h1>
       <Form />
       {isLoading && !error && <b>Request in progress...</b>}
       {contacts.length >= 1 && <Filter />}
@@ -27,7 +28,6 @@ export default function Contacts() {
       ) : (
         <p>Your phonebook is empty. Please add contact.</p>
       )}
-      <ContactList />
-    </>
+    </div>
   );
 }
