@@ -6,6 +6,7 @@ import Form from 'components/form';
 import ContactList from 'components/contactList';
 import Filter from 'components/filter';
 import css from './contacts.module.css';
+import { Loader } from 'components/loader/loader';
 
 export default function Contacts() {
   const { contacts, fetchContacts } = useContacts();
@@ -21,7 +22,7 @@ export default function Contacts() {
     <div className={css.contacts}>
       <h1 className={css.contacts_title}>Your contacts!</h1>
       <Form />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader />}
       {contacts.length >= 1 && <Filter />}
       {contacts.length > 0 ? (
         <ContactList />
