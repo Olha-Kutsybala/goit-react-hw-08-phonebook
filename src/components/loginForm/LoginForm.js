@@ -8,8 +8,8 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const handleChange = e => {
-    const { email, value } = e.target;
-    switch (email) {
+    const { name, value } = e.target;
+    switch (name) {
       case 'email':
         setEmail(value);
         break;
