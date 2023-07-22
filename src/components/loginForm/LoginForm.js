@@ -1,20 +1,43 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
 import css from '../registerForm/RegisterForm.module.css';
+import { useState } from 'react';
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  const handleChange = e => {
+    const { email, value } = e.target;
+    switch (email) {
+      case 'email':
+        setEmail(value);
+        break;
+
+      case 'password':
+        setPassword(value);
+        break;
+
+      default:
+        return;
+    }
+  };
+
+  const dispatch = useDispatch();
+  const handleSubmit = event => {
+    event.preventDefault();
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email,
+        password,
       })
     );
-    form.reset();
+    reset();
+  };
+
+  const reset = () => {
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -31,6 +54,9 @@ export const LoginForm = () => {
             required
             className={css.registerForm_input}
             placeholder="Email"
+            onChange={handleChange}
+            value={email}
+            pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           />
         </label>
         <label>
@@ -41,6 +67,8 @@ export const LoginForm = () => {
             minLength={8}
             className={css.registerForm_input}
             placeholder="Password"
+            onChange={handleChange}
+            value={password}
           />
         </label>
         <button type="submit" className={css.registerForm_button}>

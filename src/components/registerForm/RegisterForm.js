@@ -64,6 +64,8 @@ export const RegisterForm = () => {
             value={name}
             placeholder="Username"
             className={css.registerForm_input}
+            minLength={2}
+            pattern="^[a-zA-Zа-яА-Я\s]+$"
           />
         </label>
         <label>
@@ -75,6 +77,7 @@ export const RegisterForm = () => {
             value={email}
             placeholder="Email"
             className={css.registerForm_input}
+            pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           />
         </label>
         <label>

@@ -9,7 +9,7 @@ export const UserMenu = () => {
 
   return (
     <div className={css.userMenu}>
-      <p>Welcome, {user.name}!</p>
+      <p className={css.userMenu_welcome}>Welcome, {user.name}!</p>
       <button
         className={css.logout_button}
         type="button"
