@@ -1,5 +1,3 @@
-// import { useDispatch } from 'react-redux';
-// import { logIn } from 'redux/auth/authOperations';
 import css from '../registerForm/RegisterForm.module.css';
 import { useState } from 'react';
 import { useAuth } from 'hooks/useAuth';
@@ -25,15 +23,12 @@ export const LoginForm = () => {
     }
   };
 
-  // const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
-    // dispatch(
     login({
       email,
       password,
     });
-    // );
     reset();
   };
 

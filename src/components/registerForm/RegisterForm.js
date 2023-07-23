@@ -1,6 +1,4 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/authOperations';
 import css from './RegisterForm.module.css';
 import { useAuth } from 'hooks/useAuth';
 
@@ -30,16 +28,13 @@ export const RegisterForm = () => {
     }
   };
 
-  // const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
-    // dispatch(
     register({
       name,
       email,
       password,
     });
-    // );
     reset();
   };
 
