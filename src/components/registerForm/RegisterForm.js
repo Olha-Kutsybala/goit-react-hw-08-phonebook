@@ -77,7 +77,7 @@ export const RegisterForm = () => {
             value={email}
             placeholder="Email"
             className={css.registerForm_input}
-            pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+            // pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           />
         </label>
         <label>

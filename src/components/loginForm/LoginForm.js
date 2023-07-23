@@ -56,7 +56,7 @@ export const LoginForm = () => {
             placeholder="Email"
             onChange={handleChange}
             value={email}
-            pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+            // pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           />
         </label>
         <label>
