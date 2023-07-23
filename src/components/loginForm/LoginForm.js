@@ -1,11 +1,13 @@
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/authOperations';
+// import { useDispatch } from 'react-redux';
+// import { logIn } from 'redux/auth/authOperations';
 import css from '../registerForm/RegisterForm.module.css';
 import { useState } from 'react';
+import { useAuth } from 'hooks/useAuth';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -23,15 +25,15 @@ export const LoginForm = () => {
     }
   };
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(
-      logIn({
-        email,
-        password,
-      })
-    );
+    // dispatch(
+    login({
+      email,
+      password,
+    });
+    // );
     reset();
   };
 
